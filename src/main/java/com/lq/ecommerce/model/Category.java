@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 @Entity
-@Table(name = "Category")
+@Table(name = "category")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter

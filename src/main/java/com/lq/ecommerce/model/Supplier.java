@@ -1,10 +1,12 @@
 package com.lq.ecommerce.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Timestamp;
 import java.util.HashSet;
@@ -19,21 +21,23 @@ import java.util.Set;
 public class Supplier {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "supplierId")
     private int supplierId;
 
-    @Column(nullable = false, length = 255)
+    @Column(name = "name",nullable = false, length = 255)
     private String name;
 
-    @Column(length = 255)
+    @Column(name="contactInfo",length = 255)
     private String contactInfo;
 
-    @Column(length = 255)
+    @Column(name = "address",length = 255)
     private String address;
 
-    @OneToMany(mappedBy = "productId")
-    private Set<Product> products;
+    @OneToMany(mappedBy = "productId", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Product> products = new HashSet<>();
 
     @Column(name = "created_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP", updatable = false)
+    @CreationTimestamp
     private Timestamp createdAt;
 
 

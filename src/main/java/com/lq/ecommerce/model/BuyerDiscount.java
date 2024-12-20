@@ -18,12 +18,10 @@ import java.sql.Timestamp;
 public class BuyerDiscount {
     @Id
     @ManyToOne
-    @JoinColumn(name = "buyer_id", nullable = false)
     private Buyer buyer;
 
     @Id
     @ManyToOne
-    @JoinColumn(name = "discount_id", nullable = false)
     private Discount discount;
 
     @Column(name = "assigned_at", columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")

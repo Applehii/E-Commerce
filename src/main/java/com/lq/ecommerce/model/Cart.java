@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 import java.util.Set;
 
 @Entity
-@Table(name = "Cart")
+@Table(name = "cart")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -22,7 +22,6 @@ public class Cart {
     private int id;
 
     @ManyToOne
-    @JoinColumn(name = "buyer_id", nullable = false)
     private Buyer buyer;
 
     @Column(name = "createrd_at", columnDefinition = "TIMESTAMPtz default current_timestamp")
@@ -30,7 +29,6 @@ public class Cart {
     private Timestamp date_created;
 
     @OneToMany
-    @JoinColumn(name = "cart", nullable = false)
     private Set<CartItem> cartItems;
 
 

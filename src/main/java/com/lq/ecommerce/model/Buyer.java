@@ -47,5 +47,8 @@ public class Buyer {
     @OneToMany(mappedBy = "buyer")
     private Set<BuyerDiscount> coupons;
 
+    @OneToMany(mappedBy = "buyer")
+    private Set<Order> orders;
+
 
 }
