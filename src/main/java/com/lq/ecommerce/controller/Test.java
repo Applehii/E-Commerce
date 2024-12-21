@@ -1,5 +1,6 @@
 package com.lq.ecommerce.controller;
 
+import com.lq.ecommerce.dto.response.APIResponse;
 import com.lq.ecommerce.dto.response.SupplierReponse;
 import com.lq.ecommerce.model.Supplier;
 import com.lq.ecommerce.service.SupplierService;
@@ -25,8 +26,10 @@ public class Test {
     private SupplierService supplierService;
 
     @GetMapping
-    public ResponseEntity<List<SupplierReponse>> getAllSuppliers() {
+    public APIResponse<List<SupplierReponse>> getAllSuppliers() {
         List<SupplierReponse> suppliers = supplierService.getSupplier();
-        return ResponseEntity.ok(suppliers);
+        APIResponse<List<SupplierReponse>> response = new APIResponse<>();
+        response.setData(suppliers);
+        return response;
     }
 }
