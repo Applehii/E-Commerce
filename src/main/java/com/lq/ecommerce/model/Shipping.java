@@ -25,8 +25,8 @@ public class Shipping {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int shippingId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String shippingId;
 
     @OneToOne(fetch = FetchType.LAZY)
     private Order order;

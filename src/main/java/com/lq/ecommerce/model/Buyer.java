@@ -18,9 +18,9 @@ import java.util.Set;
 @Setter
 public class Buyer {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "buyer_id", nullable = false, columnDefinition = "smallInt")
-    private int buyerId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "buyer_id", nullable = false)
+    private String buyerId;
 
     @Column(name = "username",nullable = false ,unique = true, columnDefinition = "VARCHAR(50)")
     private String username;
@@ -31,7 +31,7 @@ public class Buyer {
     @Column(name = "email", nullable = false, unique = true, columnDefinition = "VARCHAR(50)")
     private String email;
 
-    @Column(name = "phone_number", columnDefinition = "VARCHAR(10)")
+    @Column(name = "phone_number", columnDefinition = "VARCHAR(20)")
     private String phone;
 
     @Column(name = "address", columnDefinition = "VARCHAR(255)")

@@ -31,8 +31,8 @@ public class Order {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int orderId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String orderId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Buyer buyer;

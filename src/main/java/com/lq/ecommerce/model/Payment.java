@@ -24,8 +24,8 @@ public class Payment {
     }
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int paymentId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String paymentId;
 
     @OneToOne(fetch = FetchType.LAZY)
     private Order order;

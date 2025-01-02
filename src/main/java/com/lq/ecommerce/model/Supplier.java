@@ -20,9 +20,9 @@ import java.util.Set;
 @Setter
 public class Supplier {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "supplierId")
-    private int supplierId;
+    private String supplierId;
 
     @Column(name = "name",nullable = false, length = 255)
     private String name;
