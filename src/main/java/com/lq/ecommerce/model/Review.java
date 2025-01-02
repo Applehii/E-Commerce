@@ -17,8 +17,8 @@ import java.sql.Timestamp;
 public class Review {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int reviewId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private String reviewId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Product product;

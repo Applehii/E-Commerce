@@ -18,8 +18,9 @@ import java.util.Set;
 @Setter
 public class Cart {
     @Id
-    @Column(name = "cart_id", nullable = false ,columnDefinition = "smallInt")
-    private int id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "cart_id", nullable = false)
+    private String id;
 
     @ManyToOne
     private Buyer buyer;

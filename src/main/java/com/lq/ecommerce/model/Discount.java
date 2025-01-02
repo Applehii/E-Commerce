@@ -17,9 +17,9 @@ import java.util.Set;
 @Setter
 public class Discount {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "discount_id", nullable = false, columnDefinition = "smallInt")
-    private int discount_id;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "discount_id", nullable = false)
+    private String discount_id;
 
     @Column(name = "code", columnDefinition = "VARCHAR(50)", nullable = false, unique = true)
     private String code;

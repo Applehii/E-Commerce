@@ -19,9 +19,9 @@ import java.sql.Timestamp;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "product_id", columnDefinition = "smallint")
-    private int productId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    @Column(name = "product_id")
+    private String productId;
 
     @Column(nullable = false, length = 255)
     private String name;
