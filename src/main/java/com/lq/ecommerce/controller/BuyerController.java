@@ -4,6 +4,7 @@ import com.lq.ecommerce.dto.request.CreateUserRequest;
 import com.lq.ecommerce.dto.response.APIResponse;
 import com.lq.ecommerce.dto.response.CreateUserResponse;
 import com.lq.ecommerce.service.BuyerService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,9 +16,12 @@ public class BuyerController {
     private BuyerService buyerService;
 
     @PostMapping("/sign-up")
-    public APIResponse<CreateUserResponse> createUser(@RequestBody CreateUserRequest createUserRequest) {
-        APIResponse<CreateUserResponse> apiResponse = new APIResponse<>();
-        apiResponse.setData(buyerService.createUser(createUserRequest));
-        return apiResponse;
+    public APIResponse<CreateUserResponse> createUser(@Valid @RequestBody CreateUserRequest createUserRequest) {
+        return APIResponse.<CreateUserResponse>builder()
+                .success(true)
+                .message("success")
+                .code(200)
+                .data(buyerService.createUser(createUserRequest))
+                .build();
     }
 }
