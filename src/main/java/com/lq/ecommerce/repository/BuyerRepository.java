@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 public interface BuyerRepository extends JpaRepository<Buyer, Short> {
     Buyer findByUsername(String username);
     boolean existsByUsername(String username);
+    boolean existsByEmail(String email);
 
     @Modifying
     @Query(value = "INSERT INTO buyer (username, password, email, phone_number, address) " +
